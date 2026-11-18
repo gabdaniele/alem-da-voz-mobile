@@ -66,7 +66,10 @@ export function LearnScreen() {
       );
       if (!response.ok) throw Error();
       const json = await response.json();
-      const pages = Object.values(json.query?.pages || {});
+      // The API returns pages keyed by id; "index" holds the search ranking.
+      const pages = Object.values(json.query?.pages || {}).sort(
+        (a, b) => (a.index ?? 0) - (b.index ?? 0),
+      );
       if (!pages.length) throw Error();
       return pages;
     } catch {

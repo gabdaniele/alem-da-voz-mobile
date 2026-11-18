@@ -7,6 +7,9 @@ import * as Sharing from "expo-sharing";
 import { useApp } from "../context/AppContext";
 import { validClasses, isPose } from "../recognition/matcher";
 import { Empty, Heading, Page, s } from "../components/UI";
+// Case- and accent-insensitive search: "ola" finds "OLÁ".
+const searchable = (text) =>
+  text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
 export default function SignalsScreen({ navigation }) {
   const app = useApp(),
     [query, setQuery] = useState(""),
@@ -84,7 +87,7 @@ export default function SignalsScreen({ navigation }) {
       <FlatList
         contentContainerStyle={s.content}
         data={app.classes.filter((c) =>
-          c.name.toLowerCase().includes(query.toLowerCase()),
+          searchable(c.name).includes(searchable(query)),
         )}
         keyExtractor={(item) => item.name}
         ListHeaderComponent={

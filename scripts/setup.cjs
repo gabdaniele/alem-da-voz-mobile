@@ -9,9 +9,20 @@ if (major < 22 || (major === 22 && minor < 13)) {
   console.error("Instale Node.js 22.13 ou superior (preferencialmente LTS).");
   process.exit(1);
 }
-const addresses = Object.values(os.networkInterfaces())
-  .flat()
-  .filter((x) => x && x.family === "IPv4" && !x.internal)
+// Prefer the Wi-Fi adapter; skip link-local and common virtual adapters
+// (VirtualBox 192.168.56.x, Hyper-V/WSL "vEthernet", Docker, VMware).
+const virtual = /virtual|vethernet|vmware|vbox|docker|wsl|hyper-v/i;
+const addresses = Object.entries(os.networkInterfaces())
+  .flatMap(([name, list]) => (list || []).map((x) => ({ ...x, name })))
+  .filter(
+    (x) =>
+      x.family === "IPv4" &&
+      !x.internal &&
+      !x.address.startsWith("169.254.") &&
+      !x.address.startsWith("192.168.56.") &&
+      !virtual.test(x.name),
+  )
+  .sort((a, b) => /wi-?fi|wlan|wireless/i.test(b.name) - /wi-?fi|wlan|wireless/i.test(a.name))
   .map((x) => x.address);
 const ip = process.argv[2] || addresses[0];
 if (!ip) {

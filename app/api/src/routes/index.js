@@ -17,7 +17,8 @@ export function routes(db, secret) {
   router.get("/health", (_req, res) => res.json({ status: "ok" }));
   router.post("/auth/register", limit, auth.register);
   router.post("/auth/login", limit, auth.login);
-  router.use(authenticate(db, secret));
+  // Only protected paths require a token; unknown paths fall through to 404.
+  router.use(["/auth/me", "/phrases"], authenticate(db, secret));
   router.get("/auth/me", auth.me);
   router.route("/phrases").get(phrases.list).post(phrases.create);
   router

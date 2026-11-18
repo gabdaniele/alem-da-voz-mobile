@@ -167,6 +167,8 @@ function Root() {
       <Snackbar
         visible={!!app.notice}
         onDismiss={() => app.setNotice("")}
+        // Keep notices above the bottom tab bar so they never block the tabs.
+        wrapperStyle={{ bottom: 64 }}
         duration={4000}
         action={{ label: "Fechar", onPress: () => app.setNotice("") }}
       >
