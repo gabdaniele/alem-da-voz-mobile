@@ -288,6 +288,13 @@ Todas as consultas de frases filtram pelo `user_id` do token, então cada usuár
 
 ## Telas
 
+Capturas do APK instalado em um celular Android.
+
+| | | | |
+| --- | --- | --- | --- |
+| ![Conversar](docs/screenshots/conversar.webp) | ![Meus sinais](docs/screenshots/meus-sinais.webp) | ![Frases](docs/screenshots/frases.webp) | ![Ajustes](docs/screenshots/ajustes.png) |
+| Conversar: câmera, sinal reconhecido e mensagem | Meus sinais: cadastro, importação e lista | Frases: estado vazio com convite | Ajustes: conta, reconhecimento e gesto de confirmação |
+
 | Tela | Onde | O que mostra |
 | --- | --- | --- |
 | Conversar | Aba | Câmera, letra reconhecida, barra de estabilização e mensagem em formação |
@@ -300,8 +307,6 @@ Todas as consultas de frases filtram pelo `user_id` do token, então cada usuár
 | Sua conta | Stack | Login e cadastro |
 | Como usar | Stack | Guia de uso |
 | Conhecer a Libras | Stack | Conteúdo da Wikipédia com carregamento e erro |
-
-Capturas de tela podem ser adicionadas em `docs/screenshots/`.
 
 ## Como funciona o reconhecimento
 
@@ -360,9 +365,6 @@ O modelo e o runtime do MediaPipe são carregados da internet (jsDelivr e Google
 
 ## Integrantes
 
-> Preencher com os nomes e RAs dos integrantes do grupo.
-
-| Nome | RA | Responsabilidades |
-| --- | --- | --- |
-| Gabriella Damião | | |
-| | | |
+- Gabriella Daniele
+- Glauco Henrique
+- Antonio Vinicius
