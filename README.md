@@ -45,9 +45,7 @@ Pessoas que se comunicam por sinais, ou que precisam de um apoio visual para esc
 
 ## Justificativa pessoal
 
-> **Proposta editável — revisar e reescrever com as experiências reais do grupo antes da entrega.**
->
-> Como estudante e profissional interessada em UX/UI, quero explorar interfaces que facilitem a comunicação visual e deem retorno claro durante a interação. O Além da Voz permite aplicar, em um problema concreto, conhecimentos de acessibilidade, organização de telas e desenvolvimento mobile integrado a uma API própria. Sua utilidade precisa ser avaliada com usuários, especialmente pessoas surdas e fluentes em Libras, sem pressupor que um protótipo substitua a comunicação em Libras.
+Como estudante e profissional interessada em UX/UI, quero explorar interfaces que facilitem a comunicação visual e deem retorno claro durante a interação. O Além da Voz permite aplicar, em um problema concreto, conhecimentos de acessibilidade, organização de telas e desenvolvimento mobile integrado a uma API própria. Sua utilidade precisa ser avaliada com usuários, especialmente pessoas surdas e fluentes em Libras, sem pressupor que um protótipo substitua a comunicação em Libras.
 
 ## Funcionalidades
 
