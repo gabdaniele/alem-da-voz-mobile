@@ -6,3 +6,6 @@ dist/
 *.db-shm
 *.db-wal
 .DS_Store
+
+# Atalhos locais do Windows (não fazem parte da entrega)
+*.ps1
