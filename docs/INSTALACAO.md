@@ -65,7 +65,24 @@ Para iPhone, use `--platform ios` e siga o fluxo de assinatura da Apple. As cont
 
 ## Gerar APK para instalar sem Expo Go
 
-O projeto inclui `eas.json` com perfil `preview` gerando APK Android. Antes de distribuir, hospede a API com HTTPS, persistência para SQLite e variável JWT_SECRET. Configure `EXPO_PUBLIC_API_URL` com essa URL no ambiente do build (ou ajuste no próprio aplicativo).
+O projeto inclui `eas.json` com perfil `preview` gerando APK Android.
+
+**HTTP liberado no Android.** Por padrão, um APK de release bloqueia endereços `http://`. O `app.json` usa o plugin `expo-build-properties` com `usesCleartextTraffic: true`, para que o APK consiga falar com a API rodando no computador (`http://IP:3000`) durante testes e apresentação. Para uso real, hospede a API com HTTPS, persistência para SQLite e `JWT_SECRET` forte.
+
+**Endereço da API no APK.** O `.env` não é enviado para o servidor do EAS (está no `.gitignore`), então o APK sai **sem** endereço da API. Escolha uma opção:
+
+- Mais simples: depois de instalar, abra **Ajustes → Conexão com o servidor**, digite `http://IP-DO-COMPUTADOR:3000` e toque em **Testar e salvar conexão**. Fica salvo no aparelho.
+- Ou grave o endereço no build, acrescentando ao perfil `preview` do `eas.json`:
+
+```json
+"preview": {
+  "distribution": "internal",
+  "android": { "buildType": "apk" },
+  "env": { "EXPO_PUBLIC_API_URL": "http://192.168.1.10:3000" }
+}
+```
+
+Troque pelo IP real (ou pela URL HTTPS da API hospedada). Se o IP do computador mudar, corrija em Ajustes; não é preciso gerar outro APK.
 
 Na pasta `app/mobile`:
 
@@ -75,7 +92,7 @@ npx eas-cli build:configure
 npx eas-cli build --platform android --profile preview
 ```
 
-Isso inicia a geração do APK na sua conta Expo; pode haver fila/limites de uso. Um build Android de distribuição pode bloquear HTTP; use HTTPS para a API. GitHub Pages não executa a API Node.js. O reconhecimento precisa de internet ao carregar o modelo, mesmo com o app instalado.
+Isso inicia a geração do APK na sua conta Expo; pode haver fila/limites de uso. **APKs gerados antes deste ajuste continuam bloqueando HTTP: gere um novo build.** Com a API no computador, celular e computador precisam estar na mesma rede Wi-Fi e o terminal `npm run api` precisa estar aberto. GitHub Pages não executa a API Node.js. O reconhecimento precisa de internet ao carregar o modelo, mesmo com o app instalado.
 
 ## Problemas comuns
 
