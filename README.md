@@ -118,17 +118,6 @@ npm run mobile    # terminal 2: inicia o Expo e mostra o QR Code
 
 O `setup` não sobrescreve arquivos `.env` existentes. No Windows, se o PowerShell bloquear o `npm`, use `npm.cmd`.
 
-**Atalhos para Windows** (usam o Node 24 instalado pelo nvm-windows, sem trocar o Node padrão do computador):
-
-| Script | O que faz |
-| --- | --- |
-| `iniciar-api.ps1` | Inicia a API |
-| `testar.ps1` | Roda os testes |
-| `entrar-expo.ps1` | Entra na conta Expo |
-| `gerar-apk.ps1` | Gera um novo APK no EAS |
-
-Execute com `powershell -ExecutionPolicy Bypass -File .\iniciar-api.ps1` (troque o nome do script).
-
 ## API: instalação e execução
 
 ```bash
