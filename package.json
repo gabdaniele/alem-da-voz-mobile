@@ -1,0 +1,1 @@
+{"name":"alem-da-voz-entrega","private":true,"version":"1.0.0","scripts":{"setup":"node scripts/setup.cjs","api":"npm --prefix app/api start","mobile":"npm --prefix app/mobile start","test":"npm --prefix app/api test && npm --prefix app/mobile test"},"engines":{"node":">=22.13.0"}}

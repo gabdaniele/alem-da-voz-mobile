@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "Além da Voz",
+    "slug": "alem-da-voz-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "br.edu.alemdavoz.app"
+    },
+    "android": {
+      "package": "br.edu.alemdavoz.app",
+      "permissions": [
+        "CAMERA",
+        "VIBRATE"
+      ],
+      "blockedPermissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "O Além da Voz usa a câmera para reconhecer os sinais que você cadastrar.",
+          "recordAudioAndroid": false,
+          "barcodeScannerEnabled": false
+        }
+      ],
+      "expo-secure-store",
+      "expo-sharing",
+      "expo-status-bar",
+      "expo-font"
+    ],
+    "extra": {
+      "description": "Comunicação por poses personalizadas de uma mão."
+    },
+    "icon": "./assets/icon.png"
+  }
+}
