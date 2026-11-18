@@ -343,11 +343,6 @@ O modelo e o runtime do MediaPipe são carregados da internet (jsDelivr e Google
 
 ## Limitações conhecidas
 
-- **Escopo do reconhecimento**: apenas poses estáticas de uma mão. Não reconhece movimentos, sinais de duas mãos nem expressões faciais, e não substitui a comunicação em Libras.
-- **Sem alfabeto pronto**: é preciso cadastrar ou importar as referências, e o reconhecimento funciona melhor com capturas da própria pessoa que vai usar.
-- **Precisão não medida**: não foram feitos testes de precisão com diferentes pessoas, iluminações ou aparelhos. Os nomes dos sinais devem ser validados com alguém fluente em Libras.
-- **Depende de internet ao iniciar**: o modelo do MediaPipe é baixado ao ativar a câmera; o funcionamento offline não é garantido.
-- **Desempenho**: o processamento por fotos em WebView é mais lento que um pipeline nativo de vídeo e pode demorar em celulares mais simples.
 - **API na rede local**: sem hospedagem, login e frases só funcionam com o computador ligado, a API rodando e o celular no mesmo Wi-Fi.
 
 ## Integrantes
