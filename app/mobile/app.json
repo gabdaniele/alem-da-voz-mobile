@@ -13,8 +13,7 @@
       "package": "br.edu.alemdavoz.app",
       "permissions": [
         "CAMERA",
-        "VIBRATE",
-        "android.permission.CAMERA"
+        "VIBRATE"
       ],
       "blockedPermissions": [
         "android.permission.RECORD_AUDIO"
